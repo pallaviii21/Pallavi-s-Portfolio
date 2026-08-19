@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Meta -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pallavi Kumari | Full Stack Developer</title>
+  <meta name="description" content="Experience Pallavi Kumari's portfolio website — Full Stack Developer & AI enthusiast from Central University of Haryana." />
+  <meta name="keywords" content="Pallavi Kumari, Portfolio, Full Stack Developer, React, Node.js, AI, Groq API, Web Development, Central University of Haryana" />
+  <meta name="author" content="Pallavi Kumari" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Pallavi Kumari | Full Stack Developer" />
+  <meta property="og:description" content="Explore Pallavi Kumari's interactive portfolio — Full Stack Developer building modern web applications and AI-driven solutions." />
+  <meta property="og:image" content="https://res.cloudinary.com/dcf0cpuqf/image/upload/v1745145351/Screenshot_2025-04-20_160515_l3qwcr.png" />
+  <meta property="og:url" content="https://adityagarwal.netlify.app" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Pallavi Kumari Portfolio" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pallavi Kumari | Full Stack Developer" />
+  <meta name="twitter:description" content="Explore Pallavi Kumari's interactive portfolio — Full Stack Developer building modern web applications and AI-driven solutions." />
+  <meta name="twitter:image" content="https://res.cloudinary.com/dcf0cpuqf/image/upload/v1745145351/Screenshot_2025-04-20_160515_l3qwcr.png" />
+
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+  <!-- Theme Color for Mobile -->
+  <meta name="theme-color" content="#ff0000" />
+
+  <!-- Manifest (optional for PWA / mobile optimization) -->
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://adityagarwal.netlify.app" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Pallavi Kumari",
+    "jobTitle": "Full Stack Developer",
+    "alumniOf": {
+      "@type": "Organization",
+      "name": "Central University of Haryana"
+    },
+    "email": "pallaviiik11.11@gmail.com",
+    "url": "https://adityagarwal.netlify.app",
+    "description": "Full Stack Developer with hands-on experience building and deploying web applications, exploring AI/ML and Generative AI.",
+    "knowsAbout": ["Full Stack Development", "React.js", "Node.js", "Express.js", "Next.js", "Python", "MongoDB", "PostgreSQL", "Supabase", "Docker", "AWS", "Groq API", "Generative AI"]
+  }
+  </script>
+
+  <!-- CSS & Fonts -->
+  <link rel="stylesheet" href="index.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+
+
+
+<body>
+  <div class="gradient-overlay"></div> <!-- Gradient overlay -->
+  <div id="animation-container">
+    <div id="greeting"></div>
+  </div>
+
+  <!-- Custom Cursor Elements -->
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+
+<!-- Include CSS & JS -->
+<link rel="stylesheet" href="cursor.css" />
+<script src="cursor.js" defer></script>
+  
+  <script src="index.js"></script>
+
+   <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(reg => console.log('✅ Service Worker registered', reg))
+          .catch(err => console.error('❌ Service Worker registration failed:', err));
+      });
+    }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GZDB0GYFM0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GZDB0GYFM0', {
+      page_title: 'Pallavi Kumari Portfolio - Home',
+      page_location: 'https://adityagarwal.netlify.app',
+      custom_map: {
+        'custom_dimension1': 'user_type',
+        'custom_dimension2': 'page_section'
+      }
+    });
+  </script>
+
+  <!-- Core Web Vitals Monitoring -->
+  <script>
+    // Monitor Core Web Vitals
+    if ('PerformanceObserver' in window) {
+      // LCP (Largest Contentful Paint)
+      new PerformanceObserver((list) => {
+        const entries = list.getEntries();
+        const lastEntry = entries[entries.length - 1];
+        gtag('event', 'web_vitals', {
+          event_category: 'Web Vitals',
+          event_label: 'LCP',
+          value: Math.round(lastEntry.startTime),
+          non_interaction: true
+        });
+      }).observe({entryTypes: ['largest-contentful-paint']});
+
+      // FID (First Input Delay)
+      new PerformanceObserver((list) => {
+        const entries = list.getEntries();
+        entries.forEach((entry) => {
+          gtag('event', 'web_vitals', {
+            event_category: 'Web Vitals',
+            event_label: 'FID',
+            value: Math.round(entry.processingStart - entry.startTime),
+            non_interaction: true
+          });
+        });
+      }).observe({entryTypes: ['first-input']});
+
+      // CLS (Cumulative Layout Shift)
+      new PerformanceObserver((list) => {
+        let clsValue = 0;
+        const entries = list.getEntries();
+        entries.forEach((entry) => {
+          if (!entry.hadRecentInput) {
+            clsValue += entry.value;
+          }
+        });
+        gtag('event', 'web_vitals', {
+          event_category: 'Web Vitals',
+          event_label: 'CLS',
+          value: Math.round(clsValue * 1000) / 1000,
+          non_interaction: true
+        });
+      }).observe({entryTypes: ['layout-shift']});
+    }
+  </script>
+</body>
+</html>
