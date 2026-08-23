@@ -25,20 +25,29 @@ A modern, dark-themed personal portfolio website showcasing my full-stack web ap
 
 ```
 PORTFOLIO/
-├── index.html              # Multilingual greeting splash & intro
-├── home.html               # Home page (Hero, selected projects, tech stack, footer)
-├── about.html              # About me page (Bio, education, internships, journey)
-├── projects.html           # Projects showcase catalog
-├── index.css / .js         # Landing page styles & scripts
-├── home.css / .js          # Home page styles & scripts
-├── about.css / .js         # About page styles & scripts
-├── projects.css / .js      # Projects page styles & scripts
-├── cursor.css / .js        # Custom cursor effect
-├── manifest.json           # PWA manifest
-├── service-worker.js       # Offline caching & PWA support
-├── sitemap.xml             # SEO sitemap
-├── robots.txt              # Search engine crawl rules
-└── Pallavi_s_Resume.pdf    # Resume PDF
+├── index.html                     # Multilingual greeting splash & intro
+├── home.html                      # Home page (Hero, selected projects, tech stack, footer)
+├── about.html                     # About me page (Bio, education, internships, journey)
+├── projects.html                  # Projects showcase catalog
+├── google47d078217a49d267.html    # Google site verification
+├── service-worker.js              # Offline caching & PWA support
+├── manifest.json                  # PWA web manifest
+├── sitemap.xml                    # SEO sitemap
+├── robots.txt                     # Search engine crawl rules
+├── package.json                   # Project npm scripts & dev server config
+├── README.md                      # Project documentation
+│
+├── assets/                        # Static client assets
+│   ├── css/                       # Stylesheets (index, home, about, projects, cursor)
+│   ├── js/                        # Client JavaScript (index, home, about, projects, cursor)
+│   ├── icons/                     # Favicons & PWA app icons
+│   └── docs/                      # Downloadable assets (Pallavi_s_Resume.pdf)
+│
+└── docs/                          # Developer guides & design notes
+    ├── ANALYTICS_SETUP.md
+    ├── IMAGE_OPTIMIZATION.md
+    ├── REMOVED_FEATURES.md
+    └── DESIGN_NOTES.md
 ```
 
 ## 📬 Contact

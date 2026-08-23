@@ -1,28 +1,35 @@
-const CACHE_NAME = 'pallavi-portfolio-v2.1';
+const CACHE_NAME = 'pallavi-portfolio-v3.0';
 const urlsToCache = [
   '/',
   '/index.html',
   '/home.html',
   '/about.html',
   '/projects.html',
-  '/index.css',
-  '/home.css',
-  '/about.css',
-  '/projects.css',
-  '/cursor.css',
-  '/index.js',
-  '/home.js',
-  '/about.js',
-  '/projects.js',
-  '/cursor.js',
   '/manifest.json',
-  '/favicon.ico',
-  '/favicon-16x16.png',
-  '/favicon-32x32.png',
-  '/apple-touch-icon.png',
-  '/android-chrome-192x192.png',
-  '/android-chrome-512x512.png',
-  '/Pallavi_s_Resume.pdf',
+  '/assets/css/index.css',
+  '/assets/css/home.css',
+  '/assets/css/about.css',
+  '/assets/css/projects.css',
+  '/assets/css/cursor.css',
+  '/assets/js/index.js',
+  '/assets/js/home.js',
+  '/assets/js/about.js',
+  '/assets/js/projects.js',
+  '/assets/js/cursor.js',
+  '/assets/images/resume-analyzer.png',
+  '/assets/images/code-room.png',
+  '/assets/images/about-1.jpg',
+  '/assets/images/about-2.jpg',
+  '/assets/images/about-3.jpg',
+  '/assets/images/about-4.jpg',
+  '/assets/images/about-5.jpg',
+  '/assets/icons/favicon.ico',
+  '/assets/icons/favicon-16x16.png',
+  '/assets/icons/favicon-32x32.png',
+  '/assets/icons/apple-touch-icon.png',
+  '/assets/icons/android-chrome-192x192.png',
+  '/assets/icons/android-chrome-512x512.png',
+  '/assets/docs/Pallavi_s_Resume.pdf',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css',
   'https://cdn.cdnfonts.com/css/pp-neue-montreal',
   'https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap',
@@ -31,29 +38,21 @@ const urlsToCache = [
 
 // Install event - cache resources
 self.addEventListener('install', event => {
-  console.log('Service worker installing...');
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(cache => {
-        console.log('Opened cache');
-        return cache.addAll(urlsToCache);
-      })
-      .catch(error => {
-        console.error('Cache installation failed:', error);
-      })
+      .then(cache => cache.addAll(urlsToCache))
+      .catch(error => console.error('Cache installation failed:', error))
   );
   self.skipWaiting();
 });
 
-// Activate event - clean up old caches
+// Activate event - clean up old caches immediately
 self.addEventListener('activate', event => {
-  console.log('Service worker activating...');
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
         cacheNames.map(cacheName => {
           if (cacheName !== CACHE_NAME) {
-            console.log('Deleting old cache:', cacheName);
             return caches.delete(cacheName);
           }
         })
@@ -63,49 +62,35 @@ self.addEventListener('activate', event => {
   self.clients.claim();
 });
 
-// Fetch event - serve from cache, fallback to network
+// Fetch event - Network-First strategy (ensures live updates reflect immediately)
 self.addEventListener('fetch', event => {
-  // Only handle http/https requests — skip chrome-extension://, etc.
   if (!event.request.url.startsWith('http')) {
     return;
   }
 
+  // Network-First with cache fallback
   event.respondWith(
-    caches.match(event.request)
+    fetch(event.request)
       .then(response => {
-        // Return cached version or fetch from network
-        if (response) {
+        if (!response || response.status !== 200 || response.type !== 'basic') {
           return response;
         }
-        
-        // Clone the request because it's a stream
-        const fetchRequest = event.request.clone();
-        
-        return fetch(fetchRequest).then(response => {
-          // Check if we received a valid response
-          if (!response || response.status !== 200 || response.type !== 'basic') {
-            return response;
+        const responseToCache = response.clone();
+        caches.open(CACHE_NAME).then(cache => {
+          try {
+            const url = event.request.url;
+            if (url.startsWith('http://') || url.startsWith('https://')) {
+              cache.put(event.request, responseToCache);
+            }
+          } catch (err) {}
+        });
+        return response;
+      })
+      .catch(() => {
+        return caches.match(event.request).then(cachedResponse => {
+          if (cachedResponse) {
+            return cachedResponse;
           }
-          
-          // Clone the response because it's a stream
-          const responseToCache = response.clone();
-          
-          caches.open(CACHE_NAME)
-            .then(cache => {
-              try {
-                const url = event.request.url;
-                if (url.startsWith('http://') || url.startsWith('https://')) {
-                  cache.put(event.request, responseToCache);
-                }
-              } catch (err) {
-                console.warn('Cache put failed:', err);
-              }
-            })
-            .catch(err => console.warn('Cache open failed:', err));
-          
-          return response;
-        }).catch(() => {
-          // If both cache and network fail, show offline page
           if (event.request.destination === 'document') {
             return caches.match('/index.html');
           }

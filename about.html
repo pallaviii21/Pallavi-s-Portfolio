@@ -16,7 +16,7 @@
   <meta property="og:title" content="About | Pallavi Kumari" />
   <meta property="og:description" content="Discover the story and technical journey of Pallavi Kumari — Full Stack Developer & AI enthusiast from Central University of Haryana." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://adityagarwal.netlify.app/about.html" />
+  <meta property="og:url" content="https://pallaviii21.github.io/about.html" />
   <meta property="og:image" content="https://res.cloudinary.com/dcf0cpuqf/image/upload/v1745145351/Screenshot_2025-04-20_160515_l3qwcr.png" />
 
   <!-- Twitter Card -->
@@ -26,16 +26,16 @@
   <meta name="twitter:image" content="https://res.cloudinary.com/dcf0cpuqf/image/upload/v1745145351/Screenshot_2025-04-20_160515_l3qwcr.png" />
 
   <!-- Favicon & Icons -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
 
   <!-- Manifest (optional PWA support) -->
-  <link rel="manifest" href="/manifest.json" />
+  <link rel="manifest" href="manifest.json" />
 
   <!-- CSS & Fonts -->
-  <link rel="stylesheet" href="about.css" />
+  <link rel="stylesheet" href="assets/css/about.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,14 +59,14 @@
             <div class="nav-pill-wrapper">
               <div class="nav-indicator-glow"></div>
               <div class="nav-pill">
-                <a href="#" class="nav-toggle project w-inline-block" onclick="setActive('project')">
-                  <div class="text-nav-toggle">Projects</div>
+                <a href="projects.html" class="nav-toggle project w-inline-block" onclick="setActive('project'); return false;">
+                  <span class="text-nav-toggle">Projects</span>
                 </a>
-                <a href="#" class="nav-toggle about w-inline-block" onclick="setActive('about')">
-                  <div class="text-nav-toggle">About</div>
+                <a href="about.html" class="nav-toggle about w-inline-block active" onclick="setActive('about'); return false;">
+                  <span class="text-nav-toggle">About&nbsp;Me</span>
                 </a>
-                <a href="#" class="nav-toggle resume w-inline-block" onclick="setActive('resume')">
-                  <div class="text-nav-toggle">Resume</div>
+                <a href="assets/docs/Pallavi_s_Resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-toggle resume w-inline-block" onclick="setActive('resume'); return false;">
+                  <span class="text-nav-toggle">Resume</span>
                 </a>
                 <div class="nav-indicator-pill"></div>
               </div>
@@ -80,34 +80,51 @@
                 </a>
 
                 <div data-w-id="45d2ea4e-a85c-6a50-cf2a-753efe498f8b" class="mobile-popup-menu">
+                  <a href="home.html#about" class="popup-menu-item w-inline-block">
+                    <div class="text-popup-menu">About Me</div>
+                    <img src="https://cdn.prod.website-files.com/63dcb6e1a80e9454b630f4c4/644ca61c76573b18898f41f8_icon-open.svg" loading="lazy" alt="External link icon" class="icon-popup-external">
+                  </a>
+                  <a href="projects.html" class="popup-menu-item w-inline-block">
+                    <div class="text-popup-menu">Projects</div>
+                    <img src="https://cdn.prod.website-files.com/63dcb6e1a80e9454b630f4c4/644ca61c76573b18898f41f8_icon-open.svg" loading="lazy" alt="External link icon" class="icon-popup-external">
+                  </a>
                   <a href="mailto:pallaviiik11.11@gmail.com" class="popup-menu-item w-inline-block">
                     <div class="text-popup-menu">Email</div>
                     <img src="https://cdn.prod.website-files.com/63dcb6e1a80e9454b630f4c4/644ca61c76573b18898f41f8_icon-open.svg" loading="lazy" alt="External link icon" class="icon-popup-external">
                   </a>
-                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="popup-menu-item w-inline-block">
+                  <a href="https://github.com/pallaviii21" target="_blank" rel="noopener noreferrer" class="popup-menu-item w-inline-block">
                     <div class="text-popup-menu">GitHub</div>
                     <img src="https://cdn.prod.website-files.com/63dcb6e1a80e9454b630f4c4/644ca61c76573b18898f41f8_icon-open.svg" loading="lazy" alt="External link icon" class="icon-popup-external">
                   </a>
-                  <a href="https://linkedin.com" rel="noopener noreferrer" target="_blank" class="popup-menu-item w-inline-block">
+                  <a href="https://www.linkedin.com/in/pallavi-kumari-21si/" rel="noopener noreferrer" target="_blank" class="popup-menu-item w-inline-block">
                     <div class="text-popup-menu">LinkedIn</div>
+                    <img src="https://cdn.prod.website-files.com/63dcb6e1a80e9454b630f4c4/644ca61c76573b18898f41f8_icon-open.svg" loading="lazy" alt="External link icon" class="icon-popup-external">
+                  </a>
+                  <a href="https://leetcode.com/u/Pallaviii_07/" rel="noopener noreferrer" target="_blank" class="popup-menu-item w-inline-block">
+                    <div class="text-popup-menu">LeetCode</div>
                     <img src="https://cdn.prod.website-files.com/63dcb6e1a80e9454b630f4c4/644ca61c76573b18898f41f8_icon-open.svg" loading="lazy" alt="External link icon" class="icon-popup-external">
                   </a>
                 </div>
 
               <div class="chip-socials-wrapper">
-                <a href="mailto:pallaviiik11.11@gmail.com" aria-label="Email" class="chip-socials">
-                  <i class="fas fa-envelope" style="font-size: 14px; margin-right: 4px;"></i>
+                <a href="mailto:pallaviiik11.11@gmail.com" aria-label="Email" title="Email" class="chip-socials">
+                  <i class="fas fa-envelope"></i>
                   <div class="text-socialnav">Email</div>
                   <img src="https://cdn.prod.website-files.com/63dcb6e1a80e9454b630f4c4/63e0b50ea0956f4526968ef1_23-icon-external.svg" loading="lazy" alt="Arrow" class="icon-external">
                 </a>
-                <a href="https://github.com" aria-label="GitHub profile" target="_blank" rel="noopener noreferrer" class="chip-socials">
+                <a href="https://github.com/pallaviii21" aria-label="GitHub profile" title="GitHub" target="_blank" rel="noopener noreferrer" class="chip-socials">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" loading="lazy" style="filter: invert(1);" alt="GitHub" class="icon">
                   <div class="text-socialnav">GitHub</div>
                   <img src="https://cdn.prod.website-files.com/63dcb6e1a80e9454b630f4c4/63e0b50ea0956f4526968ef1_23-icon-external.svg" loading="lazy" alt="Arrow" class="icon-external">
                 </a>
-                <a href="https://linkedin.com" aria-label="LinkedIn profile" target="_blank" rel="noopener noreferrer" class="chip-socials">
+                <a href="https://www.linkedin.com/in/pallavi-kumari-21si/" aria-label="LinkedIn profile" title="LinkedIn" target="_blank" rel="noopener noreferrer" class="chip-socials">
                   <i class="fab fa-linkedin"></i>
                   <div class="text-socialnav">LinkedIn</div>
+                  <img src="https://cdn.prod.website-files.com/63dcb6e1a80e9454b630f4c4/63e0b50ea0956f4526968ef1_23-icon-external.svg" loading="lazy" alt="Arrow" class="icon-external">
+                </a>
+                <a href="https://leetcode.com/u/Pallaviii_07/" aria-label="LeetCode profile" title="LeetCode" target="_blank" rel="noopener noreferrer" class="chip-socials">
+                  <i class="fas fa-code"></i>
+                  <div class="text-socialnav">LeetCode</div>
                   <img src="https://cdn.prod.website-files.com/63dcb6e1a80e9454b630f4c4/63e0b50ea0956f4526968ef1_23-icon-external.svg" loading="lazy" alt="Arrow" class="icon-external">
                 </a>
               </div>
@@ -144,7 +161,7 @@
                             </div>
                         </div>
                         <div class="window-content info-hero">
-                            <img src="https://res.cloudinary.com/dcf0cpuqf/image/upload/v1775931367/IMG-20251211-WA0475_3_uqrk9o.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 42vw, (max-width: 1439px) 399px, (max-width: 1919px) 476px, 658px" alt="Campus journey"></div>
+                            <img src="assets/images/about-1.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 42vw, (max-width: 1439px) 399px, (max-width: 1919px) 476px, 658px" alt="Campus journey"></div>
                         </div>
                     </div>
                 </div>
@@ -173,7 +190,7 @@
                                 </div>
                             </div>
                             <div class="window-content info-hero">
-                                <img src="https://res.cloudinary.com/dcf0cpuqf/image/upload/v1734466294/airportview_xva1b2.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 42vw, (max-width: 1439px) 399px, (max-width: 1919px) 476px, 658px" alt="Engineering Journey"></div>
+                                <img src="assets/images/about-2.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 42vw, (max-width: 1439px) 399px, (max-width: 1919px) 476px, 658px" alt="Engineering Journey"></div>
                             </div>
                         </div>
                     </div>
@@ -194,7 +211,7 @@
                                     </div>
                                 </div>
                                 <div class="window-content info-hero">
-                                    <img src="https://res.cloudinary.com/dcf0cpuqf/image/upload/v1775932821/IMG-20251213-WA0215_2_m90urw.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 42vw, (max-width: 1439px) 399px, (max-width: 1919px) 476px, 658px" alt="Open source collaboration"></div>
+                                    <img src="assets/images/about-3.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 42vw, (max-width: 1439px) 399px, (max-width: 1919px) 476px, 658px" alt="Open source collaboration"></div>
                                 </div>
                             </div>
                         </div>
@@ -220,7 +237,7 @@
                                             </div>
                                         </div>
                                         <div class="window-content info-hero">
-                                            <img src="https://res.cloudinary.com/dcf0cpuqf/image/upload/v1734469356/serene_vhuqn3.png" loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 42vw, (max-width: 1439px) 399px, (max-width: 1919px) 476px, 658px" alt="Focus and growth"></div></div>
+                                            <img src="assets/images/about-4.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 42vw, (max-width: 1439px) 399px, (max-width: 1919px) 476px, 658px" alt="Focus and growth"></div></div>
                                         </div>
                                     </div>
                                 </div>
@@ -240,7 +257,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="window-content info-hero">
-                                                    <img src="https://res.cloudinary.com/dcf0cpuqf/image/upload/v1734466293/dogview_pj6fzz.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 42vw, (max-width: 1439px) 399px, (max-width: 1919px) 476px, 658px" alt="Creative explorations"></div>
+                                                    <img src="assets/images/about-5.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 42vw, (max-width: 1439px) 399px, (max-width: 1919px) 476px, 658px" alt="Creative explorations"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -267,7 +284,7 @@
                 </div>
             </div>
             <div class="window-content info-hero">
-                                                <img src="https://res.cloudinary.com/dcf0cpuqf/image/upload/v1739209899/pixelcut-export_2_nxj9ed.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 42vw, (max-width: 1439px) 399px, (max-width: 1919px) 476px, 658px" alt="Coding and engineering"></div>
+                                                <img src="assets/images/about-5.jpg" loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 42vw, (max-width: 1439px) 399px, (max-width: 1919px) 476px, 658px" alt="Coding and engineering toolbelt"></div>
             </div>
         </div>
     </div>
@@ -300,7 +317,7 @@
                     </div>
                 </div>
                 <div class="window-content info-hero">
-                    <img src="https://res.cloudinary.com/dcf0cpuqf/image/upload/v1775931367/IMG-20251211-WA0475_3_uqrk9o.jpg" loading="lazy" sizes="(max-width: 479px) 100vw, (max-width: 767px) 91vw, 100vw" alt=""></div>
+                    <img src="assets/images/about-1.jpg" loading="lazy" sizes="(max-width: 479px) 100vw, (max-width: 767px) 91vw, 100vw" alt="Campus"></div>
                 </div>
             </div>
         </div>
@@ -321,7 +338,7 @@
                             </div>
                         </div>
                         <div class="window-content info-hero">
-                            <img src="https://res.cloudinary.com/dcf0cpuqf/image/upload/v1734466294/airportview_xva1b2.jpg" loading="lazy" sizes="(max-width: 479px) 100vw, (max-width: 767px) 91vw, 100vw" alt=""></div>
+                            <img src="assets/images/about-2.jpg" loading="lazy" sizes="(max-width: 479px) 100vw, (max-width: 767px) 91vw, 100vw" alt="Journey"></div>
                         </div>
                     </div>
                 </div>
@@ -342,7 +359,7 @@
                                 </div>
                             </div>
                             <div class="window-content info-hero">
-                                <img src="https://res.cloudinary.com/dcf0cpuqf/image/upload/v1775932821/IMG-20251213-WA0215_2_m90urw.jpg" loading="lazy" sizes="(max-width: 479px) 100vw, (max-width: 767px) 91vw, 100vw" alt=""></div>
+                                <img src="assets/images/about-3.jpg" loading="lazy" sizes="(max-width: 479px) 100vw, (max-width: 767px) 91vw, 100vw" alt="Contributions"></div>
                             </div>
                         </div>
                     </div>
@@ -363,7 +380,7 @@
                                         </div>
                                     </div>
                                     <div class="window-content info-hero">
-                                        <img src="https://res.cloudinary.com/dcf0cpuqf/image/upload/v1734469356/serene_vhuqn3.png" loading="lazy" sizes="(max-width: 479px) 100vw, (max-width: 767px) 91vw, 100vw" alt=""></div>
+                                        <img src="assets/images/about-4.jpg" loading="lazy" sizes="(max-width: 479px) 100vw, (max-width: 767px) 91vw, 100vw" alt="Projects"></div>
                                     </div>
                                 </div>
                             </div>
@@ -374,7 +391,7 @@
                             <div class="info-hero-ending-wrapper">
                                 <div class="text-projectpage-body info-hero">
                                     <span class="text-body-info-emphasis">Let's Connect!</span><br>
-                                    Reach out via pallaviiik11.11@gmail.com or LinkedIn / GitHub.<br><br>
+                                    Reach out via <a href="mailto:pallaviiik11.11@gmail.com" style="color: #fff; text-decoration: underline;">pallaviiik11.11@gmail.com</a> or connect on <a href="https://www.linkedin.com/in/pallavi-kumari-21si/" target="_blank" rel="noopener noreferrer" style="color: #fff; text-decoration: underline;">LinkedIn</a>, <a href="https://github.com/pallaviii21" target="_blank" rel="noopener noreferrer" style="color: #fff; text-decoration: underline;">GitHub</a>, or <a href="https://leetcode.com/u/Pallaviii_07/" target="_blank" rel="noopener noreferrer" style="color: #fff; text-decoration: underline;">LeetCode</a>.<br><br>
                                     <span class="text-body-info-emphasis">Thanks for stopping by!</span>
                                 </div>
                                 <div class="signature-wrapper" style="font-family: 'Gloock', serif; font-size: 20px; color: #fff; font-style: italic; opacity: 0.9; margin-top: 10px;">
@@ -385,6 +402,53 @@
                     </div>
                     <div class="hero-noise"></div>
                 </div>
+
+    <!-- FOOTER SECTION -->
+    <footer class="footer">
+        <div class="footer-container-large">
+            <div class="footer-top">
+                <p class="footer-text-size-large-space">where <span class="footer-highlight">creativity</span> meets <span class="footer-highlight">functionality</span></p>
+            </div>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <p class="footer-heading">Explore</p>
+                    <a href="about.html" class="footer-link">About</a>
+                    <a href="projects.html" class="footer-link">Projects</a>
+                    <a href="assets/docs/Pallavi_s_Resume.pdf" class="footer-link" target="_blank" rel="noopener noreferrer">Resume</a>
+                </div>
+                <div class="footer-col">
+                    <p class="footer-heading">Socials</p>
+                    <a href="mailto:pallaviiik11.11@gmail.com" class="footer-link">Email</a>
+                    <a href="https://www.linkedin.com/in/pallavi-kumari-21si/" class="footer-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://github.com/pallaviii21" class="footer-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://leetcode.com/u/Pallaviii_07/" class="footer-link" target="_blank" rel="noopener noreferrer">LeetCode</a>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-arrow-indicator"></div>
+
+                    <div class="banner">
+                        <div class="product">
+                            <div class="soda" style="--url: url(https://res.cloudinary.com/dcf0cpuqf/image/upload/v1734447233/bg_ya96xz.png)"></div>
+                            <div class="soda" style="--url: url(https://res.cloudinary.com/dcf0cpuqf/image/upload/v1734447233/bg2_fxllwf.png)"></div>
+                        </div>
+                        <div class="rock">
+                            <img src="https://res.cloudinary.com/dcf0cpuqf/image/upload/v1734447235/rock1_qrk8jp.png" alt="Rock"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-start justify-center relative w-full sm:items-center lg:max-w-[1440px]">
+                <h1 aria-label="Pallavi Kumari" role="heading" class="footer-name-banner">
+                    PALLAVI KUMARI
+                </h1>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2024–2027 All Rights Reserved · Pallavi Kumari</p>
+            </div>
+        </div>
+    </footer>
 
   <!-- Custom Cursor Elements -->
   <div class="circle"></div>
@@ -409,10 +473,10 @@
   <div class="circle"></div>
 
 <!-- Include CSS & JS -->
-<link rel="stylesheet" href="cursor.css" />
-<script src="cursor.js" defer></script>
+<link rel="stylesheet" href="assets/css/cursor.css" />
+<script src="assets/js/cursor.js" defer></script>
 
-    <script src="about.js"></script>
+    <script src="assets/js/about.js"></script>
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GZDB0GYFM0"></script>
@@ -422,7 +486,7 @@
     gtag('js', new Date());
     gtag('config', 'G-GZDB0GYFM0', {
       page_title: 'Pallavi Kumari Portfolio - About',
-      page_location: 'https://adityagarwal.netlify.app/about.html'
+      page_location: 'https://pallaviii21.github.io/about.html'
     });
   </script>
 </body>
