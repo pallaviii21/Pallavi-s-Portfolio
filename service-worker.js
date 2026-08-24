@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pallavi-portfolio-v3.1';
+const CACHE_NAME = 'pallavi-portfolio-v3.2';
 const urlsToCache = [
   './',
   './index.html',
@@ -16,6 +16,7 @@ const urlsToCache = [
   './assets/js/about.js',
   './assets/js/projects.js',
   './assets/js/cursor.js',
+  './assets/images/preview.png',
   './assets/images/resume-analyzer.png',
   './assets/images/code-room.png',
   './assets/images/about-1.jpg',

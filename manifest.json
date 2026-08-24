@@ -39,13 +39,13 @@
   ],
   "screenshots": [
     {
-      "src": "https://res.cloudinary.com/dcf0cpuqf/image/upload/v1745145351/Screenshot_2025-04-20_160515_l3qwcr.png",
+      "src": "assets/images/preview.png",
       "sizes": "1200x800",
       "type": "image/png",
       "form_factor": "wide"
     },
     {
-      "src": "https://res.cloudinary.com/dcf0cpuqf/image/upload/v1745145351/Screenshot_2025-04-20_160515_l3qwcr.png",
+      "src": "assets/images/preview.png",
       "sizes": "800x1200",
       "type": "image/png"
     }
