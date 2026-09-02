@@ -273,23 +273,51 @@ async function fetchLiveLeetCodeStats() {
   }
 }
 
-// Fetch live GitHub profile data
+// Fetch live GitHub profile data & authentic contribution calendar
 async function fetchLiveGitHubStats() {
   try {
+    // 1. Fetch public profile stats (repos, followers)
     const res = await fetch('https://api.github.com/users/pallaviii21');
-    if (!res.ok) return;
-    const data = await res.json();
-
-    if (typeof data.public_repos === 'number') {
-      const repoEls = [document.getElementById('gh-repos-count'), ...document.querySelectorAll('.gh-repos-val')];
-      repoEls.forEach(el => el && (el.textContent = data.public_repos + '+'));
-    }
-    if (typeof data.followers === 'number') {
-      const followerEls = [document.getElementById('gh-followers-count'), ...document.querySelectorAll('.gh-followers-val')];
-      followerEls.forEach(el => el && (el.textContent = data.followers + '+'));
+    if (res.ok) {
+      const data = await res.json();
+      if (typeof data.public_repos === 'number') {
+        const repoEls = [document.getElementById('gh-repos-count'), ...document.querySelectorAll('.gh-repos-val')];
+        repoEls.forEach(el => el && (el.textContent = data.public_repos + '+'));
+      }
+      if (typeof data.followers === 'number') {
+        const followerEls = [document.getElementById('gh-followers-count'), ...document.querySelectorAll('.gh-followers-val')];
+        followerEls.forEach(el => el && (el.textContent = data.followers + '+'));
+      }
     }
   } catch (err) {
-    console.warn('GitHub live stats fallback in use:', err);
+    console.warn('GitHub profile live stats fallback in use:', err);
+  }
+
+  // 2. Fetch authentic GitHub contributions
+  try {
+    const cRes = await fetch('https://github-contributions-api.jogruber.de/v4/pallaviii21');
+    if (!cRes.ok) return;
+    const cData = await cRes.json();
+    if (!cData || !Array.isArray(cData.contributions)) return;
+
+    // Sort all days ascending
+    const sortedDays = cData.contributions.slice().sort((a, b) => a.date.localeCompare(b.date));
+    const todayStr = new Date().toISOString().split('T')[0];
+    const pastDays = sortedDays.filter(d => d.date <= todayStr);
+
+    if (pastDays.length === 0) return;
+
+    // Trailing 365 days
+    const trailingDays = pastDays.slice(-365);
+    const trailingTotal = trailingDays.reduce((acc, curr) => acc + (curr.count || 0), 0);
+
+    const contribCountEl = document.getElementById('gh-contribs-count');
+    if (contribCountEl) contribCountEl.textContent = trailingTotal;
+
+    const contribBadgeEl = document.getElementById('gh-contrib-badge');
+    if (contribBadgeEl) contribBadgeEl.textContent = `${trailingTotal} in last year`;
+  } catch (err) {
+    console.warn('GitHub live calendar sync fallback in use:', err);
   }
 }
 
