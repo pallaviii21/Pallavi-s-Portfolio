@@ -644,18 +644,17 @@ body::-webkit-scrollbar-track {
 
 
 
-.section-info-hero.desktop {
-    background-image: radial-gradient(circle closest-corner at 50% 0, #f2f2f226, #0000);
-    padding-top: 172px;
-}
-
 .section-info-hero {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 120px;
+    background-image: radial-gradient(circle closest-corner at 50% 0, #f2f2f226, #0000);
+    padding-top: clamp(120px, 14vw, 160px);
+    padding-bottom: 100px;
+    padding-left: clamp(20px, 4vw, 40px);
+    padding-right: clamp(20px, 4vw, 40px);
     display: flex;
+    flex-direction: column;
+    align-items: center;
     position: relative;
+    width: 100%;
 }
 
 .hero-fade {
@@ -1046,13 +1045,6 @@ body::-webkit-scrollbar-track {
             font-size: 15px;
         }
 
-        .section-info-hero.desktop {
-            display: none; /* Hide Desktop on Mobile */
-        }
-        .section-info-hero.mobile {
-            display: block; /* Show Mobile on Mobile */
-        }
-
 }
 
 @media screen and (max-width: 991px) {
@@ -1421,4 +1413,815 @@ body::-webkit-scrollbar-track {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* ==========================================================================
+   ABOUT HERO BIO & CONNECT CARD
+   ========================================================================== */
+.about-hero-bio {
+    font-size: clamp(15px, 1.8vw, 17px);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.78);
+    max-width: 800px;
+    margin-top: 16px;
+}
+
+.about-connect-card {
+    background: rgba(18, 18, 22, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 32px;
+    margin-top: 50px;
+    width: 100%;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.about-connect-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.about-connect-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.about-connect-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.about-connect-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.about-connect-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.about-connect-btn:hover {
+    background: rgba(255, 77, 90, 0.15);
+    border-color: rgba(255, 77, 90, 0.4);
+    transform: translateY(-2px);
+    color: #ffffff;
+}
+
+.about-signature-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ==========================================================================
+   COLLABORATION CONTACT FORM
+   ========================================================================== */
+.collab-contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    margin-top: 6px;
+    margin-bottom: 10px;
+}
+
+.collab-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+@media screen and (max-width: 650px) {
+    .collab-form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.collab-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.collab-input-group.full-width {
+    width: 100%;
+}
+
+.collab-label {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.82);
+    letter-spacing: 0.2px;
+}
+
+.required-star {
+    color: #ff4d5a;
+}
+
+.collab-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.collab-input-icon {
+    position: absolute;
+    left: 14px;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 13.5px;
+    pointer-events: none;
+    transition: color 0.2s ease;
+}
+
+.collab-input-wrapper.textarea-wrapper .textarea-icon {
+    top: 14px;
+}
+
+.collab-input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 12px 14px 12px 40px;
+    font-size: 13.5px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #ffffff;
+    outline: none;
+    transition: all 0.25s ease;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.collab-input::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 13px;
+}
+
+.collab-input:focus {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: #ff4d5a;
+    box-shadow: 0 0 0 3px rgba(255, 77, 90, 0.18), inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.collab-input-wrapper:focus-within .collab-input-icon {
+    color: #ff4d5a;
+}
+
+.collab-textarea {
+    resize: vertical;
+    min-height: 100px;
+    line-height: 1.5;
+    padding-top: 12px;
+}
+
+.collab-form-footer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+}
+
+.collab-submit-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #ff4d5a 0%, #e02434 100%);
+    color: #ffffff;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    padding: 11px 24px;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 15px rgba(255, 77, 90, 0.35);
+}
+
+.collab-submit-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 77, 90, 0.5);
+    background: linear-gradient(135deg, #ff5e6a 0%, #f02a3a 100%);
+}
+
+.collab-submit-button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.collab-submit-button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+.collab-status-msg {
+    font-size: 13px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: all 0.3s ease;
+}
+
+.collab-status-msg.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.collab-status-msg.success {
+    color: #2ed573;
+}
+
+.collab-status-msg.error {
+    color: #ff4757;
+}
+
+
+
+/* ==========================================================================
+   LINKEDIN-STYLE EXPERIENCE SECTION
+   ========================================================================== */
+.experience-container {
+    width: 100%;
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.linkedin-header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #0a66c2;
+    background: rgba(10, 102, 194, 0.12);
+    border: 1px solid rgba(10, 102, 194, 0.3);
+    padding: 6px 14px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-bottom: 8px;
+    align-self: flex-start;
+}
+
+.linkedin-header-badge:hover {
+    background: rgba(10, 102, 194, 0.25);
+    border-color: #0a66c2;
+    color: #58a6ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(10, 102, 194, 0.25);
+}
+
+.experience-card {
+    background: rgba(18, 18, 22, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 22px 24px;
+    position: relative;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+.experience-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 77, 90, 0.35);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 77, 90, 0.12);
+}
+
+.experience-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 14px;
+}
+
+.company-avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.company-avatar.ignix {
+    background: linear-gradient(135deg, #ff4d5a 0%, #ff8a00 100%);
+    color: #fff;
+}
+
+.company-avatar.labmentix {
+    background: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
+    color: #fff;
+}
+
+.company-avatar.gssoc {
+    background: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);
+    color: #fff;
+}
+
+.experience-title-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.experience-role-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.3;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.experience-type-tag {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 9px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.experience-type-tag.present {
+    background: rgba(46, 213, 115, 0.15);
+    color: #2ed573;
+    border-color: rgba(46, 213, 115, 0.3);
+}
+
+.experience-company-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #f2f2f2;
+}
+
+.experience-meta {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.55);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.experience-meta-bullet {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.experience-bullets {
+    margin: 12px 0 16px 0;
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.experience-bullet-item {
+    position: relative;
+    padding-left: 20px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.experience-bullet-item::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ff4d5a;
+    box-shadow: 0 0 6px rgba(255, 77, 90, 0.8);
+}
+
+.experience-skills-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.experience-skills-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.45);
+    margin-right: 4px;
+}
+
+.experience-skill-pill {
+    font-size: 11.5px;
+    font-weight: 500;
+    color: #e2e8f0;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 3px 10px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+.experience-skill-pill:hover {
+    background: rgba(255, 77, 90, 0.15);
+    border-color: rgba(255, 77, 90, 0.35);
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   DEVELOPER STATS & CODING ACTIVITY SECTION
+   ========================================================================== */
+.dev-stats-wrapper {
+    width: 100%;
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+.dev-stats-header {
+    text-align: left;
+    margin-bottom: 28px;
+}
+
+.dev-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+@media screen and (max-width: 900px) {
+    .dev-stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.dev-stat-card {
+    background: rgba(15, 15, 20, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 24px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dev-stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 77, 90, 0.12);
+}
+
+.dev-stat-card.github-card:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.dev-stat-card.leetcode-card:hover {
+    border-color: rgba(255, 161, 22, 0.35);
+}
+
+.dev-card-glare {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+}
+
+.dev-card-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.dev-platform-identity {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dev-platform-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    flex-shrink: 0;
+}
+
+.dev-platform-icon.github-icon {
+    background: #1f2328;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.dev-platform-icon.leetcode-icon {
+    background: rgba(255, 161, 22, 0.15);
+    color: #ffa116;
+    border: 1px solid rgba(255, 161, 22, 0.3);
+}
+
+.dev-platform-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.dev-platform-handle {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.dev-profile-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #f2f2f2;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 5px 12px;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.dev-profile-link-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+/* GitHub Quick Numbers */
+.github-numbers-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.github-num-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.github-num-box:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.github-num-val {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.github-num-label {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 4px;
+}
+
+/* GitHub Contribution Chart Container */
+.gh-chart-container {
+    background: #0d1117;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 14px;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.gh-chart-title {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.gh-chart-img {
+    width: 100%;
+    min-width: 580px;
+    display: block;
+    border-radius: 6px;
+    filter: saturate(1.1) brightness(1.05);
+}
+
+/* LeetCode Custom Solved Meters */
+.lc-summary-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+}
+
+.lc-hero-count {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 90px;
+    padding-right: 18px;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lc-total-solved {
+    font-size: 32px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1;
+}
+
+.lc-total-label {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.lc-difficulty-bars {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.lc-diff-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.lc-diff-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.lc-diff-title.easy { color: #00b8a3; }
+.lc-diff-title.medium { color: #ffc01e; }
+.lc-diff-title.hard { color: #ff375f; }
+
+.lc-diff-count {
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 600;
+}
+
+.lc-bar-track {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.lc-bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lc-bar-fill.easy {
+    background: linear-gradient(90deg, #00b8a3, #2cd3be);
+    box-shadow: 0 0 8px rgba(0, 184, 163, 0.5);
+}
+
+.lc-bar-fill.medium {
+    background: linear-gradient(90deg, #ffc01e, #ffd056);
+    box-shadow: 0 0 8px rgba(255, 192, 30, 0.5);
+}
+
+.lc-bar-fill.hard {
+    background: linear-gradient(90deg, #ff375f, #ff6384);
+    box-shadow: 0 0 8px rgba(255, 55, 95, 0.5);
+}
+
+/* LeetCode Activity Graph Container */
+.lc-chart-container {
+    background: #0d1117;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 14px;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.lc-chart-title {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.lc-chart-img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+    filter: contrast(1.05);
+}
+
+@media screen and (max-width: 600px) {
+    .experience-card {
+        padding: 16px;
+    }
+    .company-avatar {
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+    }
+    .experience-role-title {
+        font-size: 15px;
+    }
+    .github-numbers-row {
+        grid-template-columns: 1fr;
+    }
+    .lc-summary-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .lc-hero-count {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-right: 0;
+        padding-bottom: 12px;
+    }
+}
+
 

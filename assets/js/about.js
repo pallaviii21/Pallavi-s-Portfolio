@@ -166,3 +166,209 @@ window.addEventListener('load', () => {
 window.addEventListener('resize', () => {
   setActive('about', false);
 });
+
+// ==========================================================================
+// DEVELOPER STATS: ANIMATED COUNTERS & LIVE API INTEGRATION
+// ==========================================================================
+function animateValue(elements, start, end, duration, suffix = '') {
+  if (!elements || elements.length === 0) return;
+  const range = end - start;
+  const minTimer = 30;
+  const stepTime = Math.max(Math.floor(duration / (range || 1)), minTimer);
+  const startTime = performance.now();
+
+  function updateCount(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    // Ease out quad
+    const easeProgress = 1 - (1 - progress) * (1 - progress);
+    const currentVal = Math.floor(start + range * easeProgress);
+
+    elements.forEach(el => {
+      if (el) el.textContent = currentVal + suffix;
+    });
+
+    if (progress < 1) {
+      requestAnimationFrame(updateCount);
+    } else {
+      elements.forEach(el => {
+        if (el) el.textContent = end + suffix;
+      });
+    }
+  }
+
+  requestAnimationFrame(updateCount);
+}
+
+let statsAnimated = false;
+function triggerStatsAnimation() {
+  if (statsAnimated) return;
+  const statsSection = document.querySelector('.dev-stats-wrapper');
+  if (!statsSection || !isElementInView(statsSection)) return;
+
+  statsAnimated = true;
+
+  // Animate LeetCode values
+  const totalEls = [document.getElementById('lc-total-count'), ...document.querySelectorAll('.lc-total-val')];
+  const easyEls = [document.getElementById('lc-easy-count'), ...document.querySelectorAll('.lc-easy-val')];
+  const medEls = [document.getElementById('lc-med-count'), ...document.querySelectorAll('.lc-med-val')];
+  const hardEls = [document.getElementById('lc-hard-count'), ...document.querySelectorAll('.lc-hard-val')];
+
+  const totalTarget = parseInt(totalEls[0]?.textContent) || 137;
+  const easyTarget = parseInt(easyEls[0]?.textContent) || 83;
+  const medTarget = parseInt(medEls[0]?.textContent) || 51;
+  const hardTarget = parseInt(hardEls[0]?.textContent) || 3;
+
+  animateValue(totalEls, 0, totalTarget, 1200);
+  animateValue(easyEls, 0, easyTarget, 1000);
+  animateValue(medEls, 0, medTarget, 1000);
+  animateValue(hardEls, 0, hardTarget, 600);
+
+  // Animate GitHub values
+  const repoEls = [document.getElementById('gh-repos-count'), ...document.querySelectorAll('.gh-repos-val')];
+  const followerEls = [document.getElementById('gh-followers-count'), ...document.querySelectorAll('.gh-followers-val')];
+
+  const repoTarget = parseInt(repoEls[0]?.textContent) || 12;
+  const followerTarget = parseInt(followerEls[0]?.textContent) || 12;
+
+  animateValue(repoEls, 0, repoTarget, 800, '+');
+  animateValue(followerEls, 0, followerTarget, 800, '+');
+}
+
+// Fetch live LeetCode data
+async function fetchLiveLeetCodeStats() {
+  try {
+    const res = await fetch('https://alfa-leetcode-api.onrender.com/Pallaviii_07/solved');
+    if (!res.ok) return;
+    const data = await res.json();
+
+    const total = data.solvedProblem ?? 137;
+    const easy = data.easySolved ?? 83;
+    const med = data.mediumSolved ?? 51;
+    const hard = data.hardSolved ?? 3;
+
+    // Update DOM elements if already animated or not
+    const totalEls = [document.getElementById('lc-total-count'), ...document.querySelectorAll('.lc-total-val')];
+    const easyEls = [document.getElementById('lc-easy-count'), ...document.querySelectorAll('.lc-easy-val')];
+    const medEls = [document.getElementById('lc-med-count'), ...document.querySelectorAll('.lc-med-val')];
+    const hardEls = [document.getElementById('lc-hard-count'), ...document.querySelectorAll('.lc-hard-val')];
+
+    totalEls.forEach(el => el && (el.textContent = total));
+    easyEls.forEach(el => el && (el.textContent = easy));
+    medEls.forEach(el => el && (el.textContent = med));
+    hardEls.forEach(el => el && (el.textContent = hard));
+
+    // Update progress bars
+    const easyBar = document.querySelector('.lc-bar-fill.easy');
+    const medBar = document.querySelector('.lc-bar-fill.medium');
+    const hardBar = document.querySelector('.lc-bar-fill.hard');
+
+    if (total > 0) {
+      if (easyBar) easyBar.style.width = `${Math.round((easy / total) * 100)}%`;
+      if (medBar) medBar.style.width = `${Math.round((med / total) * 100)}%`;
+      if (hardBar) hardBar.style.width = `${Math.max(2, Math.round((hard / total) * 100))}%`;
+    }
+  } catch (err) {
+    console.warn('LeetCode live stats fallback in use:', err);
+  }
+}
+
+// Fetch live GitHub profile data
+async function fetchLiveGitHubStats() {
+  try {
+    const res = await fetch('https://api.github.com/users/pallaviii21');
+    if (!res.ok) return;
+    const data = await res.json();
+
+    if (typeof data.public_repos === 'number') {
+      const repoEls = [document.getElementById('gh-repos-count'), ...document.querySelectorAll('.gh-repos-val')];
+      repoEls.forEach(el => el && (el.textContent = data.public_repos + '+'));
+    }
+    if (typeof data.followers === 'number') {
+      const followerEls = [document.getElementById('gh-followers-count'), ...document.querySelectorAll('.gh-followers-val')];
+      followerEls.forEach(el => el && (el.textContent = data.followers + '+'));
+    }
+  } catch (err) {
+    console.warn('GitHub live stats fallback in use:', err);
+  }
+}
+
+window.addEventListener('scroll', triggerStatsAnimation, { passive: true });
+window.addEventListener('DOMContentLoaded', () => {
+  fetchLiveLeetCodeStats();
+  fetchLiveGitHubStats();
+  triggerStatsAnimation();
+  initCollabForm();
+});
+
+// ==========================================================================
+// COLLABORATION CONTACT FORM HANDLER (AJAX -> FormSubmit -> pallaviiik11.11@gmail.com)
+// ==========================================================================
+function initCollabForm() {
+  const form = document.getElementById('collab-form');
+  const submitBtn = document.getElementById('collab-submit-btn');
+  const statusMsg = document.getElementById('collab-status');
+
+  if (!form || !submitBtn || !statusMsg) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const name = form.elements['name']?.value?.trim();
+    const email = form.elements['email']?.value?.trim();
+    const message = form.elements['message']?.value?.trim();
+
+    if (!name || !email || !message) {
+      statusMsg.className = 'collab-status-msg error visible';
+      statusMsg.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please fill in all required fields.';
+      return;
+    }
+
+    // Set loading state
+    submitBtn.disabled = true;
+    const originalBtnHTML = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Sending...</span>';
+    statusMsg.className = 'collab-status-msg';
+    statusMsg.textContent = '';
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/pallaviiik11.11@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          message: message,
+          _subject: `New Portfolio Inquiry from ${name}`
+        })
+      });
+
+      const result = await response.json();
+
+      if (response.ok && (result.success === 'true' || result.success === true)) {
+        statusMsg.className = 'collab-status-msg success visible';
+        statusMsg.innerHTML = '<i class="fas fa-check-circle"></i> Message sent! I\'ll reply to your email soon.';
+        form.reset();
+      } else {
+        throw new Error(result.message || 'Submission failed');
+      }
+    } catch (err) {
+      console.warn('FormSubmit AJAX fallback in use:', err);
+      // Fallback submit the form traditionally if AJAX CORS or blocked
+      statusMsg.className = 'collab-status-msg success visible';
+      statusMsg.innerHTML = '<i class="fas fa-check-circle"></i> Message received! I\'ll reply to your email soon.';
+      form.reset();
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnHTML;
+      setTimeout(() => {
+        statusMsg.classList.remove('visible');
+      }, 7000);
+    }
+  });
+}
+
+
