@@ -2215,12 +2215,19 @@ body::-webkit-scrollbar-track {
     justify-content: space-between;
 }
 
+.lc-chart-scroll-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
 .lc-chart-img {
     width: 100%;
+    min-width: 500px;
     border-radius: 8px;
     display: block;
     filter: contrast(1.05);
 }
+
 
 @media screen and (max-width: 600px) {
     .experience-card {

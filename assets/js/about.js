@@ -268,6 +268,21 @@ async function fetchLiveLeetCodeStats() {
       if (medBar) medBar.style.width = `${Math.round((med / total) * 100)}%`;
       if (hardBar) hardBar.style.width = `${Math.max(2, Math.round((hard / total) * 100))}%`;
     }
+
+    // Fetch live calendar streak info
+    try {
+      const calRes = await fetch('https://alfa-leetcode-api.onrender.com/Pallaviii_07/calendar');
+      if (calRes.ok) {
+        const calData = await calRes.json();
+        const streak = calData.streak ?? 65;
+        const streakBadge = document.getElementById('lc-streak-badge');
+        if (streakBadge) {
+          streakBadge.innerHTML = `<i class="fas fa-bolt"></i> ${streak} Days Streak`;
+        }
+      }
+    } catch (cErr) {
+      console.warn('LeetCode streak sync fallback in use:', cErr);
+    }
   } catch (err) {
     console.warn('LeetCode live stats fallback in use:', err);
   }

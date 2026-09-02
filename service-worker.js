@@ -20,6 +20,7 @@ const urlsToCache = [
   './assets/images/resume-analyzer.png',
   './assets/images/code-room.png',
   './assets/images/github-contributions.svg',
+  './assets/images/leetcode-streak.svg',
   './assets/images/about-1.jpg',
   './assets/images/about-2.jpg',
   './assets/images/about-3.jpg',
