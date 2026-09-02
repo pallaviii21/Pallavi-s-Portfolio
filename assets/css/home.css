@@ -1450,131 +1450,110 @@ hr.modern {
 
 /* Individual tech items with animation */
 .tech-item-language {
-    width: 120px;
-    height: 120px;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
-    font-weight: bold;
-    color: rgba(255, 255, 255, 0.8);
     cursor: pointer;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7), 0 0 40px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.03);
     position: relative;
-    overflow: hidden;
-    transition: transform 0.6s ease, box-shadow 0.4s ease, filter 0.5s ease;
+    overflow: visible;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
     will-change: transform;
-    animation: pulse 3s infinite alternate;
-    filter: blur(0px);
-    aspect-ratio: 1; /* Ensures the item maintains a circular shape */
+    aspect-ratio: 1;
 }
 
 .tech-item-language .tech-icon-language {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
+    width: 54px;
+    height: 54px;
+    object-fit: contain;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .tech-item-language:hover {
-    animation: glowing 1s infinite alternate;
-    transform: scale(1.4) rotateX(360deg) rotateY(360deg);
-    box-shadow: 0px 20px 40px rgba(133, 131, 131, 0.443);
-    filter: blur(0.5px);
+    transform: translateY(-8px) scale(1.1);
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 77, 90, 0.5);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7), 0 0 28px rgba(255, 77, 90, 0.35);
 }
 
-/* Liquid Morph Effect */
-@keyframes liquidMorph {
-    0% {
-        transform: scale(1) rotate(0deg);
-    }
-    100% {
-        transform: scale(1.3) rotate(360deg);
-    }
+.tech-item-language:hover .tech-icon-language {
+    transform: scale(1.12);
 }
 
-.tech-item-language:hover {
-    animation: liquidMorph 0.6s forwards ease;
-}
-
-/* Liquid glowing animation */
-@keyframes glowing {
-    0% {
-        box-shadow: 0 0 10px rgba(148, 148, 148, 0.4);
-    }
-    50% {
-        box-shadow: 0 0 25px rgba(148, 148, 148, 0.8);
-    }
-    100% {
-        box-shadow: 0 0 10px rgba(169, 169, 169, 0.4);
-    }
-}
-
-/* Subtle pulse effect */
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        opacity: 0.8;
-    }
-    50% {
-        transform: scale(1.2);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 0.8;
-    }
-}
-
-/* Hover reveal text */
+/* Hover reveal text pill */
 .tech-item-language::after {
     content: attr(data-tech);
     position: absolute;
-    bottom: -30px;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.8);
+    bottom: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: #ffffff;
+    background: rgba(14, 14, 18, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 3px 8px;
+    border-radius: 6px;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 25;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .tech-item-language:hover::after {
     opacity: 1;
+    transform: translateX(-50%) translateY(-2px);
 }
 
 /* Responsive adjustments for smaller devices */
 @media (max-width: 768px) {
     .tech-stack-language {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2 columns */
-        grid-template-rows: repeat(5, 1fr); /* 5 rows */
-        gap: 10px; /* Smaller gap for smaller screens */
-        align-items: center; /* Center items vertically in each grid cell */
-        justify-items: center; /* Center items horizontally in each grid cell */
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        align-items: center;
+        justify-items: center;
     }
 
     .tech-item-language {
-        width: 90px; /* Further reduce width for better circularity on smaller screens */
-        height: 90px; /* Further reduce height for better circularity */
-        aspect-ratio: 1 / 1; /* Maintain circular shape with aspect ratio */
-        border-radius: 50%; /* Ensure the item maintains a rounded, circular shape */
-        margin-bottom: 0; /* Remove extra margin for grid layout */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 14px; /* Font size adjustment for smaller devices */
+        width: 86px;
+        height: 86px;
+    }
+
+    .tech-item-language .tech-icon-language {
+        width: 44px;
+        height: 44px;
     }
 
     .tech-stack-title-language {
-        font-size: 24px;
+        font-size: 28px;
+        margin-bottom: 40px;
     }
 }
 
 /* Additional adjustments for ultra-small devices */
 @media (max-width: 480px) {
+    .tech-stack-language {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+
     .tech-item-language {
-        width: 80px;
-        height: 80px;
+        width: 74px;
+        height: 74px;
+    }
+
+    .tech-item-language .tech-icon-language {
+        width: 36px;
+        height: 36px;
     }
 
     .tech-stack-title-language {
